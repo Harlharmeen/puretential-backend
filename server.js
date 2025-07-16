@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "..")));
 
+// Root route — so visiting `/` doesn’t show “Cannot GET /”
+app.get("/", (req, res) => {
+  res.send("PureTential Backend is running 🚀");
+});
+
 // MongoDB setup
 const client = new MongoClient(process.env.MONGO_URI);
 let db;
