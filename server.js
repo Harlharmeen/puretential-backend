@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "..")));
+app.use(express.static(path.join(__dirname)));
 
 // Root route — so visiting `/` doesn’t show “Cannot GET /”
 app.get("/", (req, res) => {
